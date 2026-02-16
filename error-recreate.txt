@@ -1,0 +1,65 @@
+
+
+1. Clone https://github.com/tinacms/tina-remix-starter
+2. (lock Node version to keep with official Tina support)
+.npmrc
+# Latest Node LTS
+use-node-version=24.13.1
+3. `pnpm install`
+4. verify Node version is LTS, add to `package.json` scripts.
+output confirms:
+% pnpm run node:version
+```
+> tina-remix-starter@ node:version /Users/me/repos/playground/tina-remix-starter
+> node -v
+
+v24.13.1
+```
+4. Import project from GitHub in Tina Cloud.
+5. Site url is: http://localhost:5173
+5. Put info in .env following .env.example
+# These are retrieved from your project at app.tina.io
+TINA_CLIENT_ID=b94ee08c-0481-45f5-a02a-b76dca107610
+TINA_TOKEN=<Content (Readonly)>
+TINA_BRANCH=main
+5. Add the search field to .env
+TINA_SEARCH_TOKEN=<Search>
+6. Update the tina/config.ts to add search property:
+
+```
+import { defineConfig } from "tinacms";
+import {Page} from "./collections/page";
+
+
+export const config = defineConfig({
+  clientId: process.env.TINA_CLIENT_ID,
+  branch:
+    process.env.TINA_BRANCH || // custom branch env override
+    process.env.VERCEL_GIT_COMMIT_REF || // Vercel branch env
+    process.env.HEAD, // Netlify branch env
+  token: process.env.TINA_TOKEN,
+  media: {
+    tina: {
+      publicFolder: "public",
+      mediaRoot: "",
+    },
+  },
+  build: {
+    publicFolder: "public", // The public asset folder for your framework
+    outputFolder: "admin", // within the public folder
+  },
+  schema: {
+    collections: [Page],
+  },
+  search: {
+    tina: {
+      indexerToken: process.env.TINA_SEARCH_TOKEN,
+      stopwordLanguages: ['eng'],
+    },
+    indexBatchSize: 100,
+    maxSearchIndexFieldLength: 100,
+  },
+});
+
+export default config;
+```
