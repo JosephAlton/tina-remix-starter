@@ -21,6 +21,13 @@ export const config = defineConfig({
       mediaRoot: "",
     },
   },
+    search: {
+    indexBatchSize: 1000,
+    tina: {
+      indexerToken: process.env.TINA_SEARCH_TOKEN,
+      stopwordLanguages: ['eng'],
+    },
+  },
   build: {
     publicFolder: "public", // The public asset folder for your framework
     outputFolder: "admin", // within the public folder
