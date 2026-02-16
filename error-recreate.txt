@@ -63,3 +63,5 @@ export const config = defineConfig({
 
 export default config;
 ```
+X. init backend
+npx @tinacms/cli init backend

@@ -3,3 +3,6 @@ node_modules
 /.cache
 /build
 .env
+local
+# Vercel takes issue with .npmrc use-node-version so ignore it here but use locally
+.npmrc
