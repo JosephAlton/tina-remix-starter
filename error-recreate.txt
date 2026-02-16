@@ -65,3 +65,35 @@ export default config;
 ```
 X. init backend
 npx @tinacms/cli init backend
+Y. pnpm run build fails
+
+% pn run build
+
+> tina-remix-starter@ build /Users/adroa/repos/playground/tina-remix-starter
+> tinacms build && remix vite:build
+
+Starting Tina build
+(node:22167) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Checking clientId and token. ✅
+Checking branch 'main' is on TinaCloud. ✅
+Checking indexing process in TinaCloud... ✅
+
+Checking local GraphQL Schema matches server. ✅
+Checking local Tina Schema matches server. ✅
+Building search index ⠧
+ERROR: Could not locate the bindings file. Tried:
+ → /Users/adroa/repos/playground/tina-remix-starter/node_modules/.pnpm/better-sqlite3@11.8.1/node_modules/better-sqlite3/build/better_sqlite3.node
+ → /Users/adroa/repos/playground/tina-remix-starter/node_modules/.pnpm/better-sqlite3@11.8.1/node_modules/better-sqlite3/build/Debug/better_sqlite3.node
+ → /Users/adroa/repos/playground/tina-remix-starter/node_modules/.pnpm/better-sqlite3@11.8.1/node_modules/better-sqlite3/build/Release/better_sqlite3.node
+ → /Users/adroa/repos/playground/tina-remix-starter/node_modules/.pnpm/better-sqlite3@11.8.1/node_modules/better-sqlite3/out/Debug/better_sqlite3.node
+ → /Users/adroa/repos/playground/tina-remix-starter/node_modules/.pnpm/better-sqlite3@11.8.1/node_modules/better-sqlite3/Debug/better_sqlite3.node
+ → /Users/adroa/repos/playground/tina-remix-starter/node_modules/.pnpm/better-sqlite3@11.8.1/node_modules/better-sqlite3/out/Release/better_sqlite3.node
+ → /Users/adroa/repos/playground/tina-remix-starter/node_modules/.pnpm/better-sqlite3@11.8.1/node_modules/better-sqlite3/Release/better_sqlite3.node
+ → /Users/adroa/repos/playground/tina-remix-starter/node_modules/.pnpm/better-sqlite3@11.8.1/node_modules/better-sqlite3/build/default/better_sqlite3.node
+ → /Users/adroa/repos/playground/tina-remix-starter/node_modules/.pnpm/better-sqlite3@11.8.1/node_modules/better-sqlite3/compiled/24.13.1/darwin/arm64/better_sqlite3.node
+ → /Users/adroa/repos/playground/tina-remix-starter/node_modules/.pnpm/better-sqlite3@11.8.1/node_modules/better-sqlite3/addon-build/release/install-root/better_sqlite3.node
+ → /Users/adroa/repos/playground/tina-remix-starter/node_modules/.pnpm/better-sqlite3@11.8.1/node_modules/better-sqlite3/addon-build/debug/install-root/better_sqlite3.node
+ → /Users/adroa/repos/playground/tina-remix-starter/node_modules/.pnpm/better-sqlite3@11.8.1/node_modules/better-sqlite3/addon-build/default/install-root/better_sqlite3.node
+ → /Users/adroa/repos/playground/tina-remix-starter/node_modules/.pnpm/better-sqlite3@11.8.1/node_modules/better-sqlite3/lib/binding/node-v137-darwin-arm64/better_sqlite3.node
+ ELIFECYCLE  Command failed with exit code 1.
